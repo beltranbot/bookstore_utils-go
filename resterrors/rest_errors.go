@@ -58,3 +58,13 @@ func NewRestErrorFromBytes(bytes []byte) (*RestErr, error) {
 	}
 	return &apiErr, nil
 }
+
+// NewRestError return new RestErr
+func NewRestError(message string, status int, err string, causes []interface{}) *RestErr {
+	return &RestErr{
+		Message: message,
+		Status:  status,
+		Error:   err,
+		Causes:  causes,
+	}
+}
